@@ -16,9 +16,11 @@
 
   cw1.addEventListener("click", function () {
             answer.textContent=""; // czyszczenie 
+            answer.innerHTML = "Loading.....................";
     fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET' }) // pobranie  danych
       .then(response => response.json())
       .then(function(dane) {
+        answer.textContent=""; // czyszczenie 
         wyswietlDane(dane); // wyśwetlenie danych
       })
     function wyswietlDane(dane) {
