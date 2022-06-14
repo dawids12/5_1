@@ -15,7 +15,25 @@
   })
 
   cw1.addEventListener("click", function () {
-    
+            answer.textContent=""; // czyszczenie 
+    fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET' }) // pobranie  danych
+      .then(response => response.json())
+      .then(function(dane) {
+        wyswietlDane(dane); // wyśwetlenie danych
+      })
+    function wyswietlDane(dane) {
+      console.log("Wczytywanie danych...");
+      for (var i = 0; i < dane.length; i++) {
+        var div = document.createElement("div");
+        div.innerHTML=
+        '<u>User ID:  </u>'+dane[i].userId+
+        '<br><u>ID:</u>'+dane[i].id+
+        '<br><u>Title: </u>'+dane[i].title+
+        '<br><u>Body: </u>'+dane[i].body;
+        answer.appendChild(div);
+      }
+      console.log("Wczytano dane.");
+    }
   })
 
   cw2.addEventListener("click", function () {
