@@ -22,17 +22,17 @@
         wyswietlDane(dane); // wyśwetlenie danych
       })
     function wyswietlDane(dane) {
-      console.log("Wczytywanie danych...");
       for (var i = 0; i < dane.length; i++) {
         var div = document.createElement("div");
         div.innerHTML=
         '<u>User ID:  </u>'+dane[i].userId+
         '<br><u>ID:</u>'+dane[i].id+
         '<br><u>Title: </u>'+dane[i].title+
-        '<br><u>Body: </u>'+dane[i].body;
+        '<br><u>Body: </u>'+dane[i].body+
+        '<hr>';
         answer.appendChild(div);
       }
-      console.log("Wczytano dane.");
+      
     }
   })
 
