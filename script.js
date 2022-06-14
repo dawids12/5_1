@@ -31,6 +31,7 @@
         '<br><u>ID:</u>'+dane[i].id+
         '<br><u>Title: </u>'+dane[i].title+
         '<br><u>Body: </u>'+dane[i].body+
+        '<hr>'+
         '<hr>';
         answer.appendChild(div);
       }
@@ -39,7 +40,23 @@
   })
 
   cw2.addEventListener("click", function () {
-    //TODO implement it
+    
+    fetch('https://jsonplaceholder.typicode.com/posts/2', { method: 'GET' })
+      .then(response => response.json())
+      .then(function(dane) {
+        answer.innerHTML = "";
+        wyswietlDane(dane);
+      })
+    function wyswietlDane(dane) {
+      var div = document.createElement("div");
+      div.innerHTML =
+        '<u>User ID:  </u>' + dane.userId +
+        '<br><u>ID: </u>' + dane.id +
+        '<br><u>Title: </u>' + dane.title +
+        '<br><u>Body: </u>' + dane.body+
+        '<hr>';
+      answer.appendChild(div);
+    }
   })
 
   cw3.addEventListener("click", function () {
